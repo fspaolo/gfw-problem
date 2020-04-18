@@ -19,9 +19,9 @@ This project describes a state-of-the-art automated system for tracking, classif
 
 [in narrative summarize challenges from papers] data, infrastructure, global validation
 
-```
 **NOTE** I will not attempt to use the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development on the data engineering side: (a) data is not easily available and (b) the complex information will need to be pre-processed. I would first implement a DL framework to analyze Amplitude, then think how to incorporate Polarization and Optical information, and then (if we decide it’s worth pursuing based on small-scale tests) investigate incorporating Phase information.
-```
+
+Make clear this proposal is of practical character. We do not intent to develop new machine learning methods, but instead we aim to implement, test and adapt working methods and investigate optimal practices for the problem in question.
 
 # Technical Overview
 
@@ -83,7 +83,10 @@ How to test/validate system
 Use AIS data
 
 **Section on Polarimetric SAR**
+
 [how can we use this information?]
+
+![PolSAR](figures/sentinel-1-vv-vh.png)
 
 **Challenges**
 * Main challenges: 
