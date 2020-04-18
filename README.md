@@ -2,7 +2,11 @@
 
 Tracking vessel activity in the global oceans from space with AI
 
+[Eye catching figure here]
+
 ## Summary 
+
+[Brief summary of the project]
 
 Two-step process: (1) Implement a simple Deep Learning (DL) ship detection system using freely available SAR amplitude data that can be scaled globally. (2) With a fully working system in place, extend data capabilities to improve detection accuracy, potentially including (a) polarization information and (b) optical imagery.
 
@@ -18,7 +22,13 @@ Why not CFAR?
 
 ## Notes
 
+---
+**NOTE**
+
 I will not attempt to use the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development on the data engineering side: (a) data is not easily available and (b) the complex information will need to be pre-processed. I would first implement a DL framework to analyze Amplitude, then think how to incorporate Polarization and Optical information, and then (if we decide it’s worth pursuing based on small-scale tests) investigate incorporating Phase information.
+---
+
+# Technical Overview
 
 ## Considerations
 
@@ -94,3 +104,4 @@ Use AIS data
 
 What if it doesn't work? There is no guarantee that a Deep Learning approach will outperform a working method. The achievement of an optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force) to arrive at a model tuned for the specific data and problem in question. Success heavily relies on a combination of creativity and domain expertise. If potential for outperforming the current approach is not evident at the initial stages (after a few trials), an alternative approach should be considered (for example, improving the current CFAR method with more traditional ML algorithms for pre- and post-processing SAR data and the inclusion of auxiliary information).
 
+* what about cost? Should resources/investigation be scaled according cost?
