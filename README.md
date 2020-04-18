@@ -56,7 +56,7 @@ The detection framework needs to be:
 * Develop web-based visualization
 * Make shareable/editable documentation
 
-**Implement scaled version**
+**Implement upscaled version**
 * Think about challenges in this section [will need a lot of engineering]
 * Perform global analyses
 * Publish paper
