@@ -37,6 +37,8 @@ The detection framework needs to be:
 
 **[Be more specific (data sources, PolSAR, technical pre-processing, libraries/tools, NN arch]**
 
+**[Also consider figures/visuals to make the points]**
+
 **Architect pipeline**
 * Identify data sources
 * Identify data formats (original->optimal pipeline input->intermediate pipeline steps->output)
