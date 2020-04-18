@@ -35,6 +35,8 @@ The detection framework needs to be:
 
 ## Proposed steps
 
+**[Be more specific (data sources, PolSAR, technical pre-processing, libraries/tools, NN arch]**
+
 **Architect pipeline**
 * Identify data sources
 * Identify data formats (original->optimal pipeline input->intermediate pipeline steps->output)
@@ -85,4 +87,8 @@ Use AIS data
 	- Sea state challenge (rough vs smooth)
 	- Coastal challenge (multiple ship-like objects)
 	- Cluster challenge (stack of ships: marinas)
+
+## Final thoughts
+
+What if it doesn't work? There is no guarantee that a Deep Learning approach will outperform a working method. The achievement of an optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force) to arrive at a model tuned for the specific data and problem in question. Success heavily relies on a combination of creativity and domain expertise. If potential for outperforming the current approach is not evident at the initial stages (after a few trials), an alternative approach should be considered (for example, improving the current CFAR method with more traditional ML algorithms for pre- and post-processing SAR data and the inclusion of auxiliary information).
 
