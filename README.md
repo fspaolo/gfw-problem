@@ -1,22 +1,21 @@
 # Global vessel detection system
 
-Tracking vessel activity in the global oceans from space with AI
+Tracking vessel activity in the global oceans from space with AI and cloud computing
 
 [Eye catching figure here]
 
-## Summary 
+# Summary 
 
-[Brief summary of the project]
+[Brief summary of the project: expand on this]
 
-Two-step process: (1) Implement a simple Deep Learning (DL) ship detection system using freely available SAR amplitude data that can be scaled globally. (2) With a fully working system in place, extend data capabilities to improve detection accuracy, potentially including (a) polarization information and (b) optical imagery.
+This project describes a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. Our approach leverages freely-available satellite radar and optical imagery, and AI-driven algorithms for planetary-scale fishing monitoring using the Google cloud platform. We propose a two-step development process: First, implement an artificial neural network framework for ship detection using freely available Synthetic Aperture Radar (SAR) amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
 
-## Motivation 
+# Motivation 
 
-Why do we need this? 
+*Why do we need this?* Illegal and unsustainable fishing practices can deplete marine resources and endanger food security. Illegal, unreported and unregulated (IUU) fishing, which is most prominent in countries with weak fisheries management and lax law enforcement, affects legitimate commercial fishers, impacts the accuracy of stock estimates, and induce severe damage to non-target species and vulnerable marine ecosystems. It is estimated that IUU fishing impacts the global economy on the billion-dollar-scale annually. Most developing countries do not have sufficient infrastructure in place to monitor vessel activity at large scale. And current global approaches rely on [describe deficiencies of CFAR]. There is a need for assessing activities 
 
-Why not CFAR?
 
-## Challenges
+# Challenges
 
 [in narrative summarize challenges from papers] data, infrastructure, global validation
 
