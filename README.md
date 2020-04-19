@@ -21,10 +21,15 @@ Typical outputs for each identified object are center coordinates, with and heig
 Suggest YOLOv3, Faster R-CNN, and SSD as the best performing neural nets for ship detection according the literature. Mention the C and/or Python implementations in TensorFlow and PyTorch.
 
 
+![PolSAR](images/sentinel-1-vv-vh.png)
+
+
 ## Improve efficiency
 
 [Google compute engine instead of GEE, Parallel proc with Ray, optimized data formats, explore network structure simplifications (cite example)]
 
+
+![Pipeline](images/pipeline-1-vv-vh.png)
 
 ## Challenges
 
@@ -102,8 +107,6 @@ Use AIS data
 **Section on Polarimetric SAR**
 
 [how can we use this information?]
-
-![PolSAR](images/sentinel-1-vv-vh.png)
 
 **Challenges**
 * Main challenges: 
