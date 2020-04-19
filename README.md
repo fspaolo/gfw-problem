@@ -8,7 +8,7 @@ Tracking vessel activity in the global oceans from space with AI and cloud compu
 
 [Brief summary of the project: expand on this]
 
-This project describes a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. Our approach leverages freely-available satellite radar and optical imagery, and AI-driven algorithms for planetary-scale fishing monitoring using the Google cloud platform. We propose a two-step development process: First, implement an artificial neural network framework for ship detection using freely available Synthetic Aperture Radar (SAR) amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
+We propose to develop a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. The objective of this project is two-fold: improve vessel detection accuracy and efficiency of computations. Our approach leverages freely-available satellite radar and optical imagery, and state-of-the-art AI algorithms and cloud computing for global-scale monitoring of the oceans. We propose a two-step development process: First, implement an artificial neural network framework for ship detection using freely available Synthetic Aperture Radar (SAR) amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
 
 ## Motivation 
 
@@ -38,7 +38,7 @@ Regarding the choice of technologies and strategies adopted to develop the vesse
 - documented (accessible by any team member)
 - open (based on actively maintained open-source code and publicly-available data)
 
-Next is a draft sketch of the development steps so as to structure the rationale of the project. 
+Next we provide a draft sketch of the development steps depicting the structure and rationale of the project. 
 
 ## Proposed steps
 
