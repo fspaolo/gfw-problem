@@ -14,15 +14,13 @@ Illegal and unsustainable fishing practices can deplete marine resources and end
 
 ## Improve detection
 
-[AI, polarimetry, optical,...]
-
 In recent years, computer vision methods have dominated the analyses of (natural, medical and satellite) images. In particular, deep learning approaches have been shown to outperform standard statistical methods on complex analyses such as classification, object detection and semantic segmentation, on near-real time massive data streams from surveillance systems, mobile devices, and commercial satellites. Unlike more traditional statistical methods that are data-type specific, the same CNN architectures have been implemented on different image types and complex backgrounds. CNNs are, therefore, a natural way forward to improve upon and extend the capabilities of current ship detection systems (moving beyond CFAR-based methods).
 
 We propose to implement and test three CNN object detection methods: YOLOv3, Faster R-CNN, and SSD, as some studies suggest these are among the best performing CNNs for the task of ship detection on satellite iamges (see refs below). Python implementations of these CNNs on top of TensorFlow and/or PyTorch are also available. Despite the different strategies adopted by these three CNN architectures to locate objects, the output of the analyses consist on the center coordinates, bounding box with and height, and class probability of the objects, which is a convenient way to report location, size and uncertainty of a detected vessel.
 
-Although the use of all-day/all-weather SAR backscatter information (as used by CFAR systems) constitutes a significant improvement over traditional optical methods (suffering from cloud coverage and light conditions), SAR images still suffer from inherent speckle noise and low contrast on rough ocean. Moreover, in-shore ships can be confused with the infrastructure of harbors, with similar brightness and shapes.
+Although the use of all-day/all-weather SAR backscatter information (as used by CFAR systems) constitutes a significant improvement over traditional optical methods (suffering from cloud coverage and light conditions), single-channel SAR images still suffer from inherent speckle noise, ambiguities in azimuth and range direction, and low contrast on low backscattering background characteristic of rough ocean environments. Moreover, in-shore ships can be confounded with the infrastructure of harbors, with similar brightness and geometries.
 
-To address this limitation we propose to test the use of additional information (as a secondary step), such as SAR polarization and co-located detections from optical imagery.  
+We propose to test the use of additional information (as a secondary step), such as SAR polarization and co-located detections from optical imagery.  
 
 ![PolSAR](images/sentinel-1-vv-vh.png)
 
@@ -38,17 +36,17 @@ To address this limitation we propose to test the use of additional information 
 
 Make clear this proposal is of practical character. We do not intent to develop new machine learning methods, but instead we aim to implement, test and adapt working methods and investigate optimal practices for the problem in question.
 
-## Technical Overview
+## Roadmap
 
-Regarding the choice of technologies and strategies adopted to develop the vessel detection system, there are a few practical considerations that must be taken into account. Overall, the framework needs to be:
+In developing large software projects there are some practical considerations to keep in mind regarding the technologies and strategies adopted. Overall, the vessel detection framework needs to be:
 
-- fast (aiming at near-real time detections in future)
-- transparent (to facilitate implementation and modifications)
-- scalable (identify and asses scalability bottlenecks early on)
-- automated (or with as minimal human intervention as possible)
-- proven (has been successfully applied, and showed potential to outperform CFAR)
-- documented (accessible by any team member)
-- open (based on actively maintained open-source code and publicly-available data)
+- Fast - aiming at near-real time detections in future
+- Transparent - to facilitate implementation and modifications
+- Scalable - identify and asses scalability bottlenecks early on
+- Automated - with as minimal human intervention as possible
+- Proven - technologies are mature and/or have been successfully applied
+- Documented - throughout the dev process to be accessible by any team member
+- Open - based on actively maintained open-source code and publicly-available data
 
 Next we provide a sketch of the proposed development steps depicting the structure and rationale of the project. 
 
