@@ -43,9 +43,7 @@ Regarding the choice of technologies and strategies adopted to develop the vesse
 - documented (accessible by any team member)
 - open (based on actively maintained open-source code and publicly-available data)
 
-Next we provide a draft sketch of the development steps depicting the structure and rationale of the project. 
-
-## Proposed steps
+Next we provide a sketch of the proposed development steps depicting the structure and rationale of the project. 
 
 **[Be more specific (data sources, PolSAR, technical pre-processing, libraries/tools, NN arch]**
 
