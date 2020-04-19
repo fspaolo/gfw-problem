@@ -4,39 +4,41 @@ Tracking vessel activity in the global oceans from space with AI and cloud compu
 
 [Eye catching figure here]
 
-# Summary 
+## Summary 
 
 [Brief summary of the project: expand on this]
 
 This project describes a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. Our approach leverages freely-available satellite radar and optical imagery, and AI-driven algorithms for planetary-scale fishing monitoring using the Google cloud platform. We propose a two-step development process: First, implement an artificial neural network framework for ship detection using freely available Synthetic Aperture Radar (SAR) amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
 
-# Motivation 
+## Motivation 
 
 *Why do we need this?* Illegal and unsustainable fishing practices can deplete marine resources and endanger food security. Illegal, unreported and unregulated (IUU) fishing, which is most prominent in countries with weak fisheries management and lax law enforcement, affects legitimate commercial fishers, impacts the accuracy of stock estimates, and induce severe damage to non-target species and vulnerable marine ecosystems. It is estimated that IUU fishing impacts the global economy on the billion-dollar-scale annually. Most developing countries do not have sufficient infrastructure in place to monitor vessel activity at large scale. And current global approaches rely on [describe deficiencies of CFAR]. There is a need for assessing activities 
 
 
-# Challenges
+## Challenges
 
 [in narrative summarize challenges from papers] data, infrastructure, global validation
+
+- pre-trained models on RS images
+- limited labeled RS data for training
 
 **NOTE** I will not attempt to use the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development on the data engineering side: (a) data is not easily available and (b) the complex information will need to be pre-processed. I would first implement a DL framework to analyze Amplitude, then think how to incorporate Polarization and Optical information, and then (if we decide it’s worth pursuing based on small-scale tests) investigate incorporating Phase information.
 
 Make clear this proposal is of practical character. We do not intent to develop new machine learning methods, but instead we aim to implement, test and adapt working methods and investigate optimal practices for the problem in question.
 
-# Technical Overview
+## Technical Overview
 
-## Considerations
+Regarding the choice of technologies and strategies adopted to develop the vessel detection system, there are a few practical considerations that must be taken into account. Overall, the framework needs to be:
 
-The detection framework needs to be:
-
-- fast (aiming near-real time detection in future)
-- simple (whenever possible) ##NOTE: Maybe remove this?
-- scale globally (identify and asses scalability bottlenecks early on)
-- automated (or with minimal human interaction as possible)
-- transparent (to allow easy implementation and modifications)
+- fast (aiming at near-real time detections in future)
+- transparent (to facilitate implementation and modifications)
+- scalable (identify and asses scalability bottlenecks early on)
+- automated (or with as minimal human intervention as possible)
 - proven (has been successfully applied, and showed potential to outperform CFAR)
-- well documented (accessible by any team member)
-- based on actively maintained open-source code
+- documented (accessible by any team member)
+- open (based on actively maintained open-source code and publicly-available data)
+
+Next is a draft sketch of the development steps so as to structure the rationale of the project. 
 
 ## Proposed steps
 
@@ -100,6 +102,4 @@ Use AIS data
 
 ## Final thoughts
 
-What if it doesn't work? There is no guarantee that a Deep Learning approach will outperform a working method. The achievement of an optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force) to arrive at a model tuned for the specific data and problem in question. Success heavily relies on a combination of creativity and domain expertise. If potential for outperforming the current approach is not evident at the initial stages (after a few trials), an alternative approach should be considered (for example, improving the current CFAR method with more traditional ML algorithms for pre- and post-processing SAR data and the inclusion of auxiliary information).
-
-* what about cost? Should resources/investigation be scaled according cost?
+What if it doesn't work? There is no guarantee that a Deep Learning approach will outperform a working method. The achievement of an optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise. If potential for outperforming the current approach is not evident at the initial stages (after substantial investigation), an alternative approach should be considered. For example, improving the current CFAR method with more traditional ML algorithms for pre- and post-processing SAR data and the inclusion of auxiliary information.
