@@ -16,30 +16,23 @@ Illegal and unsustainable fishing practices can deplete marine resources and end
 
 [AI, polarimetry, optical,...]
 
-Typical outputs for each identified object are center coordinates, with and height of bounding box, and class.
+In recent years, computer vision methods have dominated the analyses of (natural, medical and satellite) images. In particular, deep learning approaches have been shown to outperform standard statistical methods on complex analyses such as classification, object detection and semantic segmentation, on near-real time massive data streams from surveillance systems, mobile devices, and commercial satellites. Unlike more traditional statistical methods that are data-type specific, the same CNN architectures have been implemented on different image types and complex backgrounds. CNNs are, therefore, a natural way forward to improve upon and extend the capabilities of current ship detection systems (moving beyond CFAR-based methods).
 
-Suggest YOLOv3, Faster R-CNN, and SSD as the best performing neural nets for ship detection according the literature. Mention the C and/or Python implementations in TensorFlow and PyTorch.
+We propose to implement and test three CNN object detection methods: YOLOv3, Faster R-CNN, and SSD, as some studies suggest these are among the best performing CNNs for the task of ship detection on satellite iamges (see refs below). Python implementations of these CNNs on top of TensorFlow and/or PyTorch are also available. Despite the different strategies adopted by these three CNN architectures to locate objects, the output of the analyses consist on the center coordinates, bounding box with and height, and class probability of the objects, which is a convenient way to report location, size and uncertainty of a detected vessel.
 
+Although the use of all-day/all-weather SAR backscatter information (as used by CFAR systems) constitutes a significant improvement over traditional optical methods (suffering from cloud coverage and light conditions), SAR images still suffer from inherent speckle noise and low contrast on rough ocean. Moreover, in-shore ships can be confused with the infrastructure of harbors, with similar brightness and shapes.
+
+To address this limitation we propose to test the use of additional information (as a secondary step), such as SAR polarization and co-located detections from optical imagery.  
 
 ![PolSAR](images/sentinel-1-vv-vh.png)
 
 
 ## Improve efficiency
 
-[Google compute engine instead of GEE, Parallel proc with Ray, optimized data formats, explore network structure simplifications (cite example)]
+[Google compute engine instead of GEE, Parallel proc with Ray, optimized data formats, explore network structure simplifications (cite example), move full development to the cloud]
 
 
 ![Pipeline](images/pipeline.png)
-
-## Challenges
-
-[in narrative summarize challenges from papers] data, infrastructure, global validation
-
-- most DL detection methods are for RGB images
-- pre-trained models on RS images
-- limited labeled RS data for training
-- problems inherent to SAR (e.g. speckle noise, contrast on rough ocean)
-- training DL models is computer intensive
 
 **NOTE** I will not attempt to use the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development on the data engineering side: (a) data is not easily available and (b) the complex information will need to be pre-processed. I would first implement a DL framework to analyze Amplitude, then think how to incorporate Polarization and Optical information, and then (if we decide it’s worth pursuing based on small-scale tests) investigate incorporating Phase information.
 
@@ -104,11 +97,10 @@ Next we provide a sketch of the proposed development steps depicting the structu
 How to test/validate system
 Use AIS data
 
-**Section on Polarimetric SAR**
+## Challenges
 
-[how can we use this information?]
+Given the adoption of novel technologies and global scope of the project, significant challenges still remain. As the project develops, we will investigate and update our adopted strategies. Some identified challenges are:
 
-**Challenges**
 * Main challenges: 
 	- Perform analysis at global scale (how to automate the full pipeline for global coverage and how to assess model performance/reliability of results at global scale)
 	- How to generate optimal training SAR data set (quality and quantity)
@@ -117,6 +109,17 @@ Use AIS data
 	- Sea state challenge (rough vs smooth)
 	- Coastal challenge (multiple ship-like objects)
 	- Cluster challenge (stack of ships: marinas)
+
+[in narrative summarize challenges from papers] data, infrastructure, global validation
+
+- most DL detection methods are for RGB images
+- pre-trained models on RS images
+- limited labeled RS data for training
+- problems inherent to SAR (e.g. speckle noise, contrast on rough ocean)
+- training DL models is computer intensive
+- sea clutter in low and medium sea conditions (SAR)
+the lack of detailed information about ships in SAR images results in difficulties for object-wise detection methods
+
 
 ## Final thoughts
 
@@ -131,3 +134,7 @@ YOLOv3 (C implementation) - https://pjreddie.com/darknet/yolo/
 Faster R-CNN (Python implementation) - https://github.com/jwyang/faster-rcnn.pytorch
 
 Ship-detection Planet data - https://medium.com/intel-software-innovators/ship-detection-in-satellite-images-from-scratch-849ccfcc3072
+
+PolSAR for ship detection - X. Cui, S. Chen and Y. Su, "Ship Detection in Polarimetric Sar Image Based on Similarity Test," IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium, Yokohama, Japan, 2019, pp. 1296-1299.
+
+YOLO, Faster R-CNN, SSD - https://cv-tricks.com/object-detection/faster-r-cnn-yolo-ssd/
