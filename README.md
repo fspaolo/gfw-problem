@@ -6,8 +6,6 @@ Tracking vessel activity in the global oceans from space with AI and cloud compu
 
 ## Summary 
 
-[Brief summary of the project: expand on this]
-
 We propose to develop a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. The objective of this project is two-fold: improve vessel detection accuracy and efficiency of computations. Our approach leverages freely-available satellite radar and optical imagery, and state-of-the-art AI algorithms and cloud computing for global-scale monitoring of the oceans. We propose a two-step development process: First, implement an artificial neural network framework for ship detection using freely available Synthetic Aperture Radar (SAR) amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
 
 ## Motivation 
