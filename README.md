@@ -6,7 +6,7 @@ Tracking vessel activity in the global oceans from space with AI and cloud compu
 
 ## Summary 
 
-We propose to develop a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. The objective of this project is two-fold: improve vessel detection accuracy and efficiency of computations. Our approach leverages freely-available satellite radar and optical imagery, and state-of-the-art AI algorithms and cloud computing for global-scale monitoring of the oceans. We propose a two-step development process: First, implement an artificial neural network framework for ship detection using freely available Synthetic Aperture Radar (SAR) amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
+This project describes the development of a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. The objective is two-fold: improve vessel detection accuracy and workflow efficiency. The approach leverages freely-available satellite radar and optical imagery, and state-of-the-art AI algorithms and cloud computing for global-scale monitoring of the oceans. We propose a two-step development process: First, implement an artificial neural network framework for ship detection using freely available Synthetic Aperture Radar (SAR) amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
 
 ## Motivation 
 
@@ -30,8 +30,10 @@ Suggest YOLOv3, Faster R-CNN, and SSD as the best performing neural nets for shi
 
 [in narrative summarize challenges from papers] data, infrastructure, global validation
 
+- most DL detection methods are for RGB images
 - pre-trained models on RS images
 - limited labeled RS data for training
+- problems inherent to SAR (e.g. speckle noise, contrast on rough ocean)
 - training DL models is computer intensive
 
 **NOTE** I will not attempt to use the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development on the data engineering side: (a) data is not easily available and (b) the complex information will need to be pre-processed. I would first implement a DL framework to analyze Amplitude, then think how to incorporate Polarization and Optical information, and then (if we decide it’s worth pursuing based on small-scale tests) investigate incorporating Phase information.
