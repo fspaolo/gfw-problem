@@ -29,7 +29,7 @@ Suggest YOLOv3, Faster R-CNN, and SSD as the best performing neural nets for shi
 [Google compute engine instead of GEE, Parallel proc with Ray, optimized data formats, explore network structure simplifications (cite example)]
 
 
-![Pipeline](images/pipeline-1-vv-vh.png)
+![Pipeline](images/pipeline.png)
 
 ## Challenges
 
