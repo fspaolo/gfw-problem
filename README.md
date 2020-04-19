@@ -40,13 +40,13 @@ Make clear this proposal is of practical character. We do not intent to develop 
 
 In developing large software projects there are some practical considerations to keep in mind regarding the technologies and strategies adopted. Overall, the vessel detection framework needs to be:
 
-- Fast - aiming at near-real time detections in future
-- Transparent - to facilitate implementation and modifications
-- Scalable - identify and asses scalability bottlenecks early on
-- Automated - with as minimal human intervention as possible
-- Proven - technologies are mature and/or have been successfully applied
-- Documented - throughout the dev process to be accessible by any team member
-- Open - based on actively maintained open-source code and publicly-available data
+- **Fast** - aiming at near-real time detections in future
+- **Transparent** - to facilitate implementation and modifications
+- **Scalable** - identify and asses scalability bottlenecks early on
+- **Automated** - with as minimal human intervention as possible
+- **Proven** - technologies are mature and/or have been successfully applied
+- **Documented** - throughout the dev process to be accessible by any team member
+- **Open** - based on actively maintained open-source code and publicly-available data
 
 Next we provide a sketch of the proposed development steps depicting the structure and rationale of the project. 
 
