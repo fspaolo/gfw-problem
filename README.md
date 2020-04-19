@@ -16,9 +16,12 @@ We propose to develop a state-of-the-art automated system for tracking, classify
 
 [AI, polarimetry, optical,...]
 
+Typical outputs for each identified object are center coordinates, with and height of bounding box, and class.
+
 ## Improve efficiency
 
 [Google compute engine, Ray, optimized data formats,...]
+
 
 ## Challenges
 
@@ -26,6 +29,7 @@ We propose to develop a state-of-the-art automated system for tracking, classify
 
 - pre-trained models on RS images
 - limited labeled RS data for training
+- training DL models is computer intensive
 
 **NOTE** I will not attempt to use the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development on the data engineering side: (a) data is not easily available and (b) the complex information will need to be pre-processed. I would first implement a DL framework to analyze Amplitude, then think how to incorporate Polarization and Optical information, and then (if we decide it’s worth pursuing based on small-scale tests) investigate incorporating Phase information.
 
@@ -63,11 +67,13 @@ Next we provide a sketch of the proposed development steps depicting the structu
 * Parallel framework: example, Ray for data pre-proc and ML preparation
 * Select a couple DL approaches. Likely candidates: YOLOv3, Faster R-CNN (say why?)
 * select a few (manageable) locations with identified data availability
-* Data labeling (manual vs automated?)
+* Device data labeling (manual vs semi-automated?)
+* Only one object class at first: ship 
+* Figure out optimal data transformation (e.g. filtering, cropping)
 * Figure out best data augmentation approach (key aspect, large effort)
 * Figure out representative training/testing data sets (what features need to be in the train/test data for best results? This is mostly unknown for remote sensing)
 * Every DL implementation needs a baseline! We have the CFAR method :)
-* Develop web-based visualization
+* Develop web-based visualization for intermediate and final products
 * Make shareable/editable documentation
 
 **Implement upscaled version**
@@ -78,7 +84,8 @@ Next we provide a sketch of the proposed development steps depicting the structu
 **Improve implemented system**
 * Data augmentation: how?
 * Data combination (optical + radar)
-* Incorporate historic information to map out risk areas, common zones/typical routes, etc.
+* Extended object classes (containers, navy, cargo, passenger, fishing vessels, etc)
+* Incorporate historic information to delineate strategic areas (e.g. protected ecosystems)
 * Automated warning system? E.g. send message when vessel type crosses pre-defined boundary: intersection of polygon map with vessel location map
 * Investigate how iceberg tracking methods apply to our problem
 * Investigate how to merge optical imagery
@@ -91,7 +98,7 @@ Use AIS data
 
 [how can we use this information?]
 
-![PolSAR](figures/sentinel-1-vv-vh.png)
+![PolSAR](images/sentinel-1-vv-vh.png)
 
 **Challenges**
 * Main challenges: 
@@ -106,3 +113,13 @@ Use AIS data
 ## Final thoughts
 
 What if it doesn't work? There is no guarantee that a Deep Learning approach will outperform a working method. The achievement of an optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise. If potential for outperforming the current approach is not evident at the initial stages (after substantial investigation), an alternative approach should be considered. For example, improving the current CFAR method with more traditional ML algorithms for pre- and post-processing SAR data and the inclusion of auxiliary information.
+
+The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up a basic CNN on a cloud GPU instance.
+
+## References
+
+YOLOv3 (C implementation) - https://pjreddie.com/darknet/yolo/
+
+Faster R-CNN (Python implementation) - https://github.com/jwyang/faster-rcnn.pytorch
+
+Ship-detection Planet data - https://medium.com/intel-software-innovators/ship-detection-in-satellite-images-from-scratch-849ccfcc3072
