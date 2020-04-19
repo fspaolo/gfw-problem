@@ -1,0 +1,33 @@
+# Set up Google Cloud Platform (GCP) to use PyTorch 1.0.0 and fastai 1.0.2
+
+https://course.fast.ai/start_gcp.html
+
+# Create an instance
+
+# Copy and paste in the terminal (do not run as shell script)
+# NOTE: machine names have changed from onilne example
+
+export IMAGE_FAMILY="pytorch-latest-gpu" # or "pytorch-latest-cpu" for non-GPU instances
+export ZONE="us-west1-b"
+export INSTANCE_NAME="gpu-instance"
+export INSTANCE_TYPE="n1-highmem-8" # "n2d-highmem-8" # budget: "n2d-highmem-4"
+
+# budget: 'type=nvidia-tesla-T4,count=1'
+gcloud compute instances create $INSTANCE_NAME \
+        --zone=$ZONE \
+        --image-family=$IMAGE_FAMILY \
+        --image-project=deeplearning-platform-release \
+        --maintenance-policy=TERMINATE \
+        --accelerator="type=nvidia-tesla-p100,count=1" \
+        --machine-type=$INSTANCE_TYPE \
+        --boot-disk-size=200GB \
+        --metadata="install-nvidia-driver=True" \
+        --preemptible
+
+# Connect to gpu instance with ssh
+
+gcloud compute ssh --zone=$ZONE jupyter@$INSTANCE_NAME -- -L 8080:localhost:8080
+
+# Setup AI Dev environment (with more options than above setup)
+
+https://medium.com/google-cloud/using-google-cloud-ai-platform-notebooks-as-a-web-based-python-ide-e729e0dc6eedk

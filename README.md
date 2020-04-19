@@ -10,7 +10,7 @@ We propose to develop a state-of-the-art automated system for tracking, classify
 
 ## Motivation 
 
-*Why do we need this?* Illegal and unsustainable fishing practices can deplete marine resources and endanger food security. Illegal, unreported and unregulated (IUU) fishing, which is most prominent in countries with weak fisheries management and lax law enforcement, affects legitimate commercial fishers, impacts the accuracy of stock estimates, and induce severe damage to non-target species and vulnerable marine ecosystems. It is estimated that IUU fishing impacts the global economy on the billion-dollar-scale annually. Most developing countries do not have sufficient infrastructure in place to monitor vessel activity at large scale. And current global approaches rely on [describe deficiencies of CFAR]. There is a need for assessing activities 
+Illegal and unsustainable fishing practices can deplete marine resources and endanger food security. Illegal, unreported and unregulated (IUU) fishing, which is most prominent in countries with weak fisheries management and lax law enforcement, affects legitimate commercial fishers, impacts the accuracy of stock estimates, and induce severe damage to non-target species and vulnerable marine ecosystems. It is estimated that IUU fishing impacts the global economy on the billion-dollar-scale annually. Most developing countries do not have sufficient infrastructure in place to monitor vessel activity at large scale. And current global approaches rely on [describe deficiencies of CFAR]. There is a need for assessing activities 
 
 ## Improve detection
 
@@ -18,9 +18,12 @@ We propose to develop a state-of-the-art automated system for tracking, classify
 
 Typical outputs for each identified object are center coordinates, with and height of bounding box, and class.
 
+Suggest YOLOv3, Faster R-CNN, and SSD as the best performing neural nets for ship detection according the literature. Mention the C and/or Python implementations in TensorFlow and PyTorch.
+
+
 ## Improve efficiency
 
-[Google compute engine, Ray, optimized data formats,...]
+[Google compute engine instead of GEE, Parallel proc with Ray, optimized data formats, explore network structure simplifications (cite example)]
 
 
 ## Challenges
