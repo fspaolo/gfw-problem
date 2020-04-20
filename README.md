@@ -80,9 +80,9 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 * Select a few (manageable) locations with data availability
 * Device data labeling strategy (manual vs semi-automated)
 * Implement CNN methods (YOLOv3, Faster R-CNN, and SSD)
-* Figure out optimal data transformations (filtering, cropping, etc.)
-* Figure out best data augmentation approach (key aspect, large effort!)
-* Figure out representative training/testing data sets (little info available for remote sensing)
+* Work out optimal data transformations (filtering, cropping, etc.)
+* Work out best data augmentation approach (key aspect, large effort!)
+* Work out representative training/testing data sets (little info available for remote sensing)
 * Define a baseline (every ML implementation needs a baseline! We have the CFAR implementation)
 * Develop web-based visualization to inspect and track intermediate results
 * Make shareable/editable documentation
