@@ -23,7 +23,7 @@ Although the use of all-day/all-weather SAR amplitude information (as used by CF
 We propose to test the use of additional information (as a secondary step), such as SAR polarization and co-located detections from optical imagery. Numerous studies have used Polarimetric SAR data for ship-detection problems (see refs below). The idea is that backscattering from a complex structure (a ship) consists of a mixture of single-bounced, double-bounced and depolarized scatterings, and only a strong single-bounce or double-bounce scatterer will produce (certain) ambiguities in azimuth, allowing the separation of the different scatterers (ships and sea surface). Different combination modes of polarization channels can, therefore, be used to increase the ship-ocean contrast and train CNN models to better recognize vessel features. Because the same CNN architectures can be trained with optical images, and substantially more work has been done in this field than using SAR data, we also plan to incorporate detections from optical images. This will allows us to better estimate uncertainties on co-located predictions (SAR + Optical), evaluate and adapt network architecture (e.g. why a detection is possible on one image type but not the other), and provide historical context for large vessels (e.g. from the Landsat archive). For ground truth, we will rely on the Automatic Identification System (AIS) carried by most medium-to-large ships.
 
 
-![Sentinel](images/sentinel-noborder.png)
+![Sentinel](images/sentinel-1.png)
 
 
 ## Improve efficiency
