@@ -120,7 +120,7 @@ Given the adoption of novel technologies and global scope of this project, signi
 
 ### References and Credits
 
-Figures have been modified from Google and the following references:
+Figures have been modified from Google and the following references (this is just an exercise):
 
 [PolSAR for small ship detection](https://www.mdpi.com/2072-4292/11/24/2938/htm)  
 [PolSAR method for ship detection](https://ieeexplore.ieee.org/document/8900480)  
