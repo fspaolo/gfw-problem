@@ -4,7 +4,7 @@
 
 ![Logo](images/logo.png)
 
-# What is this about?
+# What is this?
 
 A project to develop a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. The objective is two-fold: improve vessel detection accuracy and workflow efficiency. The approach leverages freely-available satellite radar and optical imagery, and state-of-the-art AI algorithms on cloud infrastructure for global-scale monitoring of ships in the oceans. The development is a two-step process: First, implement an artificial neural network framework for ship detection using freely available SAR amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
 
@@ -26,7 +26,6 @@ We propose to use additional information such as SAR polarization and co-located
 
 ![Sentinel](images/sentinel-1.png)
 
-<br/>
 
 # How can we improve efficiency?
 
@@ -50,17 +49,18 @@ We propose to move not only the processing-predicting workflow to Google's AI Pl
 
 Some practical considerations to keep in mind. Overall, the vessel detection framework needs to be:
 
-- **Fast** - aiming at near-real time detections in future
-- **Transparent** - to facilitate implementation and modifications
-- **Scalable** - identify and asses scalability bottlenecks early on
-- **Automated** - with as minimal human intervention as possible
-- **Proven** - technologies are mature and/or have been successfully applied
-- **Documented** - throughout the full dev process to be accessible by any team member
-- **Open** - based on actively maintained open-source code and publicly-available data
+▶︎ **Fast** - aiming at near-real time detections in future
+▶︎ **Transparent** - to facilitate implementation and modifications
+▶︎ **Scalable** - identify and asses scalability bottlenecks early on
+▶︎ **Automated** - with as minimal human intervention as possible
+▶︎ **Proven** - technologies are mature and/or have been successfully applied
+▶︎ **Documented** - throughout the full dev process to be accessible by any team member
+▶︎ **Open** - based on actively maintained open-source code and publicly-available data
 
 <br/>
 
-> **NOTE.** Because we want to minimize the development time, it seems practical not to focus on the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development as the complex data is not easily available and the phase information requires sophisticated pre-processing. We aim at implementing, testing and adapting working methods first, and then investigating further improvements to the vessel-detection problem.
+> **NOTE.**  
+> Because we want to minimize the development time, it seems practical not to focus on the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development as the complex data is not easily available and the phase information requires sophisticated pre-processing. We aim at implementing, testing and adapting working methods first, and then investigating further improvements to the vessel-detection problem.
 
 # Roadmap
 
@@ -111,7 +111,10 @@ Given the adoption of novel technologies and global scope of the project, signif
 
 The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up, compiling (C code) and training a basic CNN on a cloud GPU instance.
 
-> **A word of caution.** There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
+> **A word of caution.**  
+> There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
+
+---
 
 ### References and Credits
 
