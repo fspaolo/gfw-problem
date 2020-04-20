@@ -80,7 +80,7 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 * Select a few (manageable) locations with data availability
 * Device data labeling strategy (manual vs semi-automated)
 * Implement CNN methods (YOLOv3, Faster R-CNN, and SSD)
-* Figure out optimal data transformation (filtering, cropping, etc.)
+* Figure out optimal data transformations (filtering, cropping, etc.)
 * Figure out best data augmentation approach (key aspect, large effort!)
 * Figure out representative training/testing data sets (little info available for remote sensing)
 * Define a baseline (every ML implementation needs a baseline! We have the CFAR implementation)
@@ -98,7 +98,7 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 
 * Investigate better data augmentation
 * Assimilate polarization and optical information
-* Extended object classes (containers, navy, cargo, passenger, fishing, etc.)
+* Extend object classes (containers, navy, cargo, passenger, fishing, etc.)
 * Incorporate historic information to delineate strategic areas (e.g. protected ecosystems)
 * Device automated warning system? (when vessel type crosses pre-defined boundary)
 * Investigate other AI methods to our problem (e.g. semantic segmentation)
@@ -107,9 +107,9 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 
 # Final thoughts
 
-Given the adoption of novel technologies and global scope of the project, significant challenges still remain. As the project develops, we will test and update our adopted strategies. A significant effort will be required to train and evaluate the CNN models at global scale, as well as generating *optimal* labeled training SAR data sets.
+Given the adoption of novel technologies and global scope of this project, significant challenges still remain. As the project develops, we will test and update our adopted strategies. A significant effort will be required to train and evaluate the CNN models at global scale, as well as generating *optimal* labeled training SAR data sets.
 
-The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up, compiling (C code) and training a basic CNN on a cloud GPU instance.
+▶︎ The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up, compiling (C code) and training a basic CNN on a cloud GPU instance.  
 
 > **A word of caution.**  
 > There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal deep learning model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
