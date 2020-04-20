@@ -112,7 +112,7 @@ Given the adoption of novel technologies and global scope of this project, signi
 > **A word of caution.**  
 > There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal deep learning model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
 
-▶︎ The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up, compiling (C code) and training a basic CNN on a cloud GPU instance.  
+▶︎ The file [example.ipynb](https://nbviewer.jupyter.org/github/fspaolo/gfw-problem/blob/master/example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up, compiling (C code) and training a basic CNN on a cloud GPU instance.  
 
 <br/>
 
