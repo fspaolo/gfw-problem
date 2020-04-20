@@ -22,16 +22,27 @@ Although the use of all-day/all-weather SAR amplitude information (as used by CF
 
 We propose to test the use of additional information (as a secondary step), such as SAR polarization and co-located detections from optical imagery. Numerous studies have used Polarimetric SAR data for ship-detection problems (see refs below). The idea is that backscattering from a complex structure (a ship) consists of a mixture of single-bounced, double-bounced and depolarized scatterings, and only a strong single-bounce or double-bounce scatterer will produce (certain) ambiguities in azimuth, allowing the separation of the different scatterers (ships and sea surface). Different combination modes of polarization channels can, therefore, be used to increase the ship-ocean contrast and train CNN models to better recognize vessel features. Because the same CNN architectures can be trained with optical images, and substantially more work has been done in this field than using SAR data, we also plan to incorporate detections from optical images. This will allows us to better estimate uncertainties on co-located predictions (SAR + Optical), evaluate and adapt network architecture (e.g. why a detection is possible on one image type but not the other), and provide historical context for large vessels (e.g. from the Landsat archive). For ground truth, we will rely on the Automatic Identification System (AIS) carried by most medium-to-large ships.
 
+
 ![Sentinel](images/sentinel-noborder.png)
 
 
 ## Improve efficiency
 
-[Google compute engine instead of GEE, Parallel proc with Ray, optimized data formats, explore network structure simplifications (cite example), move full development to the cloud]
+While Google Earth Engine allows geospatial analysis at planetary scale by providing pre-processed satellite imagery and convenient access to analysis tools, it has significant limitations within the scope of this project. The capability of the analysis tools is limited, with little-to-no support for modern neural-net powered machine learning. Predictions are bottlenecked by exports and intermediate file formats. Scaling is limited, and it is difficult (sometimes impossible) to implement custom image analysis operations (such as filtering, transforming, augmenting).
 
-significant image pre-processing (filtering, resizing, transforming, augmenting, etc.) and model-parameter tuning/selection (usually DL models have millions-to-billions of parameters) is performed using CPUs.
+Recently, Google has integrated the Earth Engine with TensorFlow and the AI Platform. The AI Platform integrates other services such as the Cloud Storage, the BigQuery data warehouse, and Google's powerful Cloud Compute Engine. Through the AI Platform, we can also access external databases and, perhaps most importantly, we can implement different deep learning frameworks (such as PyTorch) and CPU/GPU parallel architectures (such as Ray).
+
+We propose to move not only the processing-predicting workflow to Google's AI Platform, but also (given its convenient GUI/SSH interface) move the full development stack from code prototyping and hyperparameter tuning to large-scale data visualization. A further improvement in the efficiency of our system is the adoption of cloud-optimized parallel strategies and data formats, such as 
+
+[Ray](https://github.com/ray-project/ray) - A fast and simple framework for building and running distributed applications. Ray is packaged with [RLlib](https://docs.ray.io/en/latest/rllib.html), a scalable reinforcement learning library, [Tune](https://docs.ray.io/en/latest/tune.html), a scalable hyperparameter tuning library, and [Modin](https://github.com/modin-project/modin), a scalable high-performance DataFrame.
+
+[HDF5](https://www.hdfgroup.org/) and [Zarr](https://medium.com/pangeo/cloud-performant-reading-of-netcdf4-hdf5-data-using-the-zarr-library-1a95c5c92314) - Hierarchical open source data formats that support large, complex, heterogeneous, chunked and compressed N-dimensional data. These formats are optimal for fast synchronous I/O operations (i.e. parallelization) of numerical types.
+
+[COG](https://www.cogeo.org/) - A cloud optimized GeoTIFF file aimed at being hosted on a HTTP file server, with an internal organization that enables more efficient workflows on the cloud. It does this by leveraging the ability of clients issuing HTTP GET range requests to ask for just the parts of a file they need.
+
 
 ![Pipeline](images/pipeline1.png)
+
 
 **NOTE** I will not attempt to use the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development on the data engineering side: (a) data is not easily available and (b) the complex information will need to be pre-processed. I would first implement a DL framework to analyze Amplitude, then think how to incorporate Polarization and Optical information, and then (if we decide it’s worth pursuing based on small-scale tests) investigate incorporating Phase information.
 
@@ -136,8 +147,9 @@ Ship-detection Planet data - https://medium.com/intel-software-innovators/ship-d
 
 PolSAR and ship detection - X. Cui, S. Chen and Y. Su, "Ship Detection in Polarimetric Sar Image Based on Similarity Test," IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium, Yokohama, Japan, 2019, pp. 1296-1299.
 
+Status of vessel detection with SAR - https://www.researchgate.net/publication/308917393_Current_Status_on_Vessel_Detection_and_Classification_by_Synthetic_Aperture_Radar_for_Maritime_Security_and_Safety
+
 PolSAR and ship detection - https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images
 
 YOLO, Faster R-CNN, SSD - https://cv-tricks.com/object-detection/faster-r-cnn-yolo-ssd/
 
-Status of vessel detection with SAR - https://www.researchgate.net/publication/308917393_Current_Status_on_Vessel_Detection_and_Classification_by_Synthetic_Aperture_Radar_for_Maritime_Security_and_Safety
