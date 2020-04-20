@@ -16,7 +16,7 @@ Illegal and unsustainable fishing practices can deplete marine resources and end
 
 In recent years, AI computer vision methods have dominated the analyses of natural, medical and satellite images. AI-driven approaches have been shown to outperform standard statistical methods on complex tasks such as classification, object detection and semantic segmentation of massive data streams from surveillance systems, mobile devices, and commercial satellites. Unlike standard statistical methods that are data-type specific, Convolutional Neural Networks (CNN) have been implemented on a wide range of image types and complex backgrounds. CNNs are a natural way forward to improve upon and extend the capabilities of current ship detection systems (moving beyond CFAR-based methods).
 
-We propose to implement and test three CNN architectures for object detection: [YOLOv3](https://pjreddie.com/darknet/yolo/), [Faster R-CNN](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a), and [SSD](https://towardsdatascience.com/review-ssd-single-shot-detector-object-detection-851a94607d11), as some studies suggest these are among the best performing CNNs for the task of ship detection on satellite images (see refs below). Python implementations of these CNNs on top of TensorFlow and/or PyTorch are also available. Typical outputs from these analysis are the center coordinates, bounding box, and class probability of the objects, a convenient way to report location, size and uncertainty of detected vessels.
+We propose to implement and test three state-of-the-art CNN architectures for (near) real-time object detection: You Only Look Once ([YOLOv3](https://pjreddie.com/darknet/yolo/)), Faster Region-based CNN ([Faster R-CNN](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a)), and Single Shot Multibox Detector ([SSD](https://towardsdatascience.com/review-ssd-single-shot-detector-object-detection-851a94607d11)), as some studies suggest these are among the best performing CNNs for detecting ships on satellite images (see refs below). Python implementations of these CNNs on top of TensorFlow and/or PyTorch are also available. Typical outputs from these analysis are the center coordinates, bounding box, and class probability of the objects, a convenient way to report location, size and uncertainty of detected vessels.
 
 Although the use of all-day/all-weather SAR amplitude images (by CFAR systems) constitutes a significant improvement over traditional optical methods (suffering from cloud coverage and light conditions), single-channel SAR images still suffer from inherent speckle noise, azimuth ambiguities, and low contrast on low backscattering background, characteristic of rough ocean environments. Also, in-shore ships can be confounded with the infrastructure of harbors, with similar brightness and shapes.
 
@@ -24,7 +24,7 @@ We propose to use additional information such as SAR polarization and co-located
 
 <br/>
 
-![Sentinel](images/sentinel-1.png)
+![Sentinel](images/sentinel-1.png)  
 
 
 # How can we improve efficiency?
@@ -35,11 +35,11 @@ Recently, Google has integrated the Earth Engine with [TensorFlow](https://www.t
 
 We propose to move not only the processing-predicting workflow to Google's AI Platform, but also (given its convenient GUI/SSH interface) move the full development stack from code prototyping and hyperparameter tuning to large-scale data visualization. A further improvement in the efficiency of our system is the adoption of cloud-optimized parallelization and data formats, such as 
 
-[Ray](https://github.com/ray-project/ray) - A fast and simple framework for building and running distributed applications. Ray is packaged with [RLlib](https://docs.ray.io/en/latest/rllib.html), a scalable reinforcement learning library, [Tune](https://docs.ray.io/en/latest/tune.html), a scalable hyperparameter tuning library, and [Modin](https://github.com/modin-project/modin), a scalable high-performance DataFrame.
+▶︎ [Ray](https://github.com/ray-project/ray) - A fast and simple framework for building and running distributed applications. Ray is packaged with [RLlib](https://docs.ray.io/en/latest/rllib.html), a scalable reinforcement learning library, [Tune](https://docs.ray.io/en/latest/tune.html), a scalable hyperparameter tuning library, and [Modin](https://github.com/modin-project/modin), a scalable high-performance DataFrame.
 
-[HDF5](https://www.hdfgroup.org/) and [Zarr](https://medium.com/pangeo/cloud-performant-reading-of-netcdf4-hdf5-data-using-the-zarr-library-1a95c5c92314) - Hierarchical open source data formats that support large, complex, heterogeneous, chunked and compressed N-dimensional data. These formats are optimal for fast synchronous I/O operations (i.e. parallelization) of numerical types.
+▶︎ [HDF5](https://www.hdfgroup.org/) and [Zarr](https://medium.com/pangeo/cloud-performant-reading-of-netcdf4-hdf5-data-using-the-zarr-library-1a95c5c92314) - Hierarchical open source data formats that support large, complex, heterogeneous, chunked and compressed N-dimensional data. These formats are optimal for fast synchronous I/O operations (i.e. parallelization) of numerical types.
 
-[COG](https://www.cogeo.org/) - A cloud optimized GeoTIFF file aimed at being hosted on a HTTP file server, with an internal organization that enables more efficient workflows on the cloud. It does this by leveraging the ability of clients issuing HTTP GET range requests to ask for just the parts of a file they need.
+▶︎ [COG](https://www.cogeo.org/) - A cloud optimized GeoTIFF file aimed at being hosted on a HTTP file server, with an internal organization that enables more efficient workflows on the cloud. It does this by leveraging the ability of clients issuing HTTP GET range requests to ask for just the parts of a file they need.
 
 <br/>
 
@@ -49,13 +49,13 @@ We propose to move not only the processing-predicting workflow to Google's AI Pl
 
 Some practical considerations to keep in mind. Overall, the vessel detection framework needs to be:
 
-▶︎ **Fast** - aiming at near-real time detections in future
-▶︎ **Transparent** - to facilitate implementation and modifications
-▶︎ **Scalable** - identify and asses scalability bottlenecks early on
-▶︎ **Automated** - with as minimal human intervention as possible
-▶︎ **Proven** - technologies are mature and/or have been successfully applied
-▶︎ **Documented** - throughout the full dev process to be accessible by any team member
-▶︎ **Open** - based on actively maintained open-source code and publicly-available data
+- **Fast** - aiming at near-real time detections in future
+- **Transparent** - to facilitate implementation and modifications
+- **Scalable** - identify and asses scalability bottlenecks early on
+- **Automated** - with as minimal human intervention as possible
+- **Proven** - technologies are mature and/or have been successfully applied
+- **Documented** - throughout the full dev process to be accessible by any team member
+- **Open** - based on actively maintained open-source code and publicly-available data
 
 <br/>
 
@@ -113,6 +113,8 @@ The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exer
 
 > **A word of caution.**  
 > There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
+
+<br/>
 
 ---
 
