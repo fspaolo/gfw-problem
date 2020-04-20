@@ -16,7 +16,7 @@ Illegal and unsustainable fishing practices can deplete marine resources and end
 
 In recent years, AI computer vision methods have dominated the analyses of natural, medical and satellite images. AI-driven approaches have been shown to outperform standard statistical methods on complex tasks such as classification, object detection and semantic segmentation of massive data streams from surveillance systems, mobile devices, and commercial satellites. Unlike standard statistical methods that are data-type specific, Convolutional Neural Networks (CNN) have been implemented on a wide range of image types and complex backgrounds. CNNs are a natural way forward to improve upon and extend the capabilities of current ship detection systems (moving beyond CFAR-based methods).
 
-We propose to implement and test three state-of-the-art CNN architectures for (near) real-time object detection: You Only Look Once ([YOLOv3](https://pjreddie.com/darknet/yolo/)), Faster Region-based CNN ([Faster R-CNN](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a)), and Single Shot Multibox Detector ([SSD](https://towardsdatascience.com/review-ssd-single-shot-detector-object-detection-851a94607d11)), as some studies suggest these are among the best performing CNNs for detecting ships on satellite images (see refs below). Python implementations of these CNNs on top of TensorFlow and/or PyTorch are also available. Typical outputs from these analysis are the center coordinates, bounding box, and class probability of the objects, a convenient way to report location, size and uncertainty of detected vessels.
+We propose to implement and test three state-of-the-art CNN architectures for (near) real-time object detection: You Only Look Once ([YOLOv3](https://pjreddie.com/darknet/yolo/)), Faster Region-based CNN ([Faster R-CNN](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a)), and Single Shot Multibox Detector ([SSD](https://towardsdatascience.com/review-ssd-single-shot-detector-object-detection-851a94607d11)), as some studies suggest these are among the best performing CNNs for detecting ships on satellite images (see refs below). Python implementations of these architectures on top of TensorFlow and/or PyTorch are also available. Typical outputs from these CNNs consist of the center coordinates, bounding box, and class probability of identified objects, a convenient way to report location, size and uncertainty of detected vessels.
 
 Although the use of all-day/all-weather SAR amplitude images (by CFAR systems) constitutes a significant improvement over traditional optical methods (suffering from cloud coverage and light conditions), single-channel SAR images still suffer from inherent speckle noise, azimuth ambiguities, and low contrast on low backscattering background, characteristic of rough ocean environments. Also, in-shore ships can be confounded with the infrastructure of harbors, with similar brightness and shapes.
 
@@ -83,7 +83,7 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 * Figure out optimal data transformation (filtering, cropping, etc.)
 * Figure out best data augmentation approach (key aspect, large effort!)
 * Figure out representative training/testing data sets (little info available for remote sensing)
-* Every ML implementation needs a baseline! We have the CFAR implementation :)
+* Define a baseline (every ML implementation needs a baseline! We have the CFAR implementation)
 * Develop web-based visualization to inspect and track intermediate results
 * Make shareable/editable documentation
 
@@ -96,7 +96,7 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 
 ### Improve implemented system
 
-* Better data augmentation
+* Investigate better data augmentation
 * Assimilate polarization and optical information
 * Extended object classes (containers, navy, cargo, passenger, fishing, etc.)
 * Incorporate historic information to delineate strategic areas (e.g. protected ecosystems)
@@ -107,12 +107,14 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 
 # Final thoughts
 
-Given the adoption of novel technologies and global scope of the project, significant challenges still remain. As the project develops, we will test and update our adopted strategies. A significant effort will be required to train and evaluate the CNN models at global scale; as well as generating optimal labeled training SAR data sets.
+Given the adoption of novel technologies and global scope of the project, significant challenges still remain. As the project develops, we will test and update our adopted strategies. A significant effort will be required to train and evaluate the CNN models at global scale, as well as generating *optimal* labeled training SAR data sets.
+
+<button name="button" onclick="http://www.google.com">Click me</button>
 
 The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up, compiling (C code) and training a basic CNN on a cloud GPU instance.
 
 > **A word of caution.**  
-> There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
+> There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal deep learning model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
 
 <br/>
 
@@ -124,7 +126,7 @@ Some figures have been modified from Google and the following references:
 
 [PolSAR for small ship detection](https://www.mdpi.com/2072-4292/11/24/2938/htm)  
 [PolSAR method for ship detection](https://ieeexplore.ieee.org/document/8900480)  
-[PolSAR and ship detection](https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images)  
+[PolSAR use in ship detection](https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images)  
 [SAR dataset for deep learning](https://www.mdpi.com/2072-4292/11/7/765/htm)  
 [Status of vessel detection with SAR](https://www.researchgate.net/publication/308917393_Current_Status_on_Vessel_Detection_and_Classification_by_Synthetic_Aperture_Radar_for_Maritime_Security_and_Safety)  
 
