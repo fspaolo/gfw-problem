@@ -22,9 +22,11 @@ Although the use of all-day/all-weather SAR amplitude images (by CFAR systems) c
 
 We propose to use additional information such as SAR polarization and co-located detections from optical imagery. Numerous studies have used Polarimetric SAR data for ship-detection problems (see refs below). The idea is that backscattering from a complex structure (a ship) consists of a mixture of single-bounced, double-bounced and depolarized scatterings, and only a strong single-bounce or double-bounce scatterer will produce (certain) ambiguities in azimuth, allowing the separation of the different scatterers (ship and sea). Different combination modes of polarization channels can be used to increase the ship-ocean contrast and train CNN models to better recognize vessel features. Because the same CNN architectures can be trained with optical images, we also plan to incorporate detections from optical sensors. This will allows us to better estimate uncertainties on co-located predictions (SAR + Optical), evaluate and adapt network architecture (why a detection is possible on one image type but not the other), and provide historical context for large vessels (e.g. from the Landsat archive). For ground truth, we will rely on the Automatic Identification System (AIS) carried by most medium-to-large ships.
 
+<br/><br/>
 
 ![Sentinel](images/sentinel-1.png)
 
+<br/><br/>
 
 # How can we improve efficiency?
 
@@ -40,9 +42,11 @@ We propose to move not only the processing-predicting workflow to Google's AI Pl
 
 [COG](https://www.cogeo.org/) - A cloud optimized GeoTIFF file aimed at being hosted on a HTTP file server, with an internal organization that enables more efficient workflows on the cloud. It does this by leveraging the ability of clients issuing HTTP GET range requests to ask for just the parts of a file they need.
 
+<br/><br/>
 
 ![Pipeline](images/pipeline1.png)
 
+<br/><br/>
 
 Some practical considerations to keep in mind. Overall, the vessel detection framework needs to be:
 
@@ -53,6 +57,8 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 - **Proven** - technologies are mature and/or have been successfully applied
 - **Documented** - throughout the full dev process to be accessible by any team member
 - **Open** - based on actively maintained open-source code and publicly-available data
+
+<br/><br/>
 
 > **NOTE.** Because we want to minimize the development time, it seems practical not focusing on the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development as the complex data is not easily available and the phase information requires sophisticated pre-processing. We aim at implementing, testing and adapting working methods first, and then investigating further improvements to the vessel-detection problem.
 
@@ -71,86 +77,53 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 ### Develop proof of concept
 
 * Implement a simplified/reduced version of the above pipeline
-* Parallel framework: example, Ray for data pre-proc and ML preparation
-* Select a couple DL approaches. Likely candidates: YOLOv3, Faster R-CNN (say why?)
-* select a few (manageable) locations with identified data availability
-* Device data labeling (manual vs semi-automated?)
-* Only one object class at first: ship 
-* Figure out optimal data transformation (e.g. filtering, cropping)
-* Figure out best data augmentation approach (key aspect, large effort)
-* Figure out representative training/testing data sets (what features need to be in the train/test data for best results? This is mostly unknown for remote sensing)
-* Every DL implementation needs a baseline! We have the CFAR method :)
-* Develop web-based visualization for intermediate and final products
+* Select a few (manageable) locations with data availability
+* Device data labeling strategy (manual vs semi-automated)
+* Implement CNN methods (YOLOv3, Faster R-CNN, and SSD)
+* Figure out optimal data transformation (filtering, cropping, etc.)
+* Figure out best data augmentation approach (key aspect, large effort!)
+* Figure out representative training/testing data sets (little info available for remote sensing)
+* Every ML implementation needs a baseline! We have the CFAR implementation :)
+* Develop web-based visualization to inspect and track intermediate results
 * Make shareable/editable documentation
 
-**Implement upscaled version**
-* Think about challenges in this section [will need a lot of engineering]
+### Implement upscaled version
+
+* Workout with engineers the infrastructure (will need a lot of engineering!)
 * Perform global analyses
-* Publish paper
+* Synthesize and distribute data
+* Publish (high-impact) paper
 
-**Improve implemented system**
-* Data augmentation: how?
-* Data combination (optical + radar)
-* Extended object classes (containers, navy, cargo, passenger, fishing vessels, etc)
+### Improve implemented system
+
+* Better data augmentation
+* Assimilate polarization and optical information
+* Extended object classes (containers, navy, cargo, passenger, fishing, etc.)
 * Incorporate historic information to delineate strategic areas (e.g. protected ecosystems)
-* Automated warning system? E.g. send message when vessel type crosses pre-defined boundary: intersection of polygon map with vessel location map
-* Investigate how iceberg tracking methods apply to our problem
-* Investigate how to merge optical imagery
-* Combine results from CFAR and NN (evaluate differences)
+* Device automated warning system? (when vessel type crosses pre-defined boundary)
+* Investigate other AI methods to our problem (e.g. semantic segmentation)
+* Investigate the use of SAR phase information 
+* Investigate better uncertainty estimation 
 
-How to test/validate system
-Use AIS data
+# Final thoughts
 
-## Challenges
+Given the adoption of novel technologies and global scope of the project, significant challenges still remain. As the project develops, we will test and update our adopted strategies. A significant effort will be required to train and evaluate the CNN models at global scale; as well as generating optimal labeled training SAR data sets.
 
-Given the adoption of novel technologies and global scope of the project, significant challenges still remain. As the project develops, we will investigate and update our adopted strategies. Some identified challenges are:
-
-* Main challenges: 
-	- Perform analysis at global scale (how to automate the full pipeline for global coverage and how to assess model performance/reliability of results at global scale)
-	- How to generate optimal training SAR data set (quality and quantity)
-* Other challenges:
-	- Speckle noise (how to pre-process SAR for optimal training)
-	- Sea state challenge (rough vs smooth)
-	- Coastal challenge (multiple ship-like objects)
-	- Cluster challenge (stack of ships: marinas)
-
-[in narrative summarize challenges from papers] data, infrastructure, global validation
-
-- most DL detection methods are for RGB images
-- pre-trained models on RS images
-- limited labeled RS data for training/labeling training images
-- problems inherent to SAR (e.g. speckle noise, contrast on rough ocean)
-- training DL models is computer intensive
-- sea clutter in low and medium sea conditions (SAR)
-the lack of detailed information about ships in SAR images results in difficulties for object-wise detection methods
-
-
-## Final thoughts
-
-What if it doesn't work? There is no guarantee that a Deep Learning approach will outperform a working method. The achievement of an optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise. If potential for outperforming the current approach is not evident at the initial stages (after substantial investigation), an alternative approach should be considered. For example, improving the current CFAR method with more traditional ML algorithms for pre- and post-processing SAR data and the inclusion of auxiliary information.
+**A word of caution.** There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
 
 The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up a basic CNN on a cloud GPU instance.
 
-## References
+### References and Credits
 
-YOLOv3 (C implementation) - https://pjreddie.com/darknet/yolo/
-
-Faster R-CNN (Python implementation) - https://github.com/jwyang/faster-rcnn.pytorch
-
-Ship detection based on YOLO - https://www.mdpi.com/2072-4292/11/7/786/htm
-
-Ship-detection Planet data - https://medium.com/intel-software-innovators/ship-detection-in-satellite-images-from-scratch-849ccfcc3072
+Some figures have been adapted from Google and the following references:
 
 PolSAR for small ship detection - https://www.mdpi.com/2072-4292/11/24/2938/htm
 
-PolSAR and ship detection - X. Cui, S. Chen and Y. Su, "Ship Detection in Polarimetric Sar Image Based on Similarity Test," IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium, Yokohama, Japan, 2019, pp. 1296-1299.
+PolSAR method for ship detection - https://ieeexplore.ieee.org/document/8900480
+
+PolSAR and ship detection - https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images
 
 SAR dataset for deep learning - https://www.mdpi.com/2072-4292/11/7/765/htm
 
 Status of vessel detection with SAR - https://www.researchgate.net/publication/308917393_Current_Status_on_Vessel_Detection_and_Classification_by_Synthetic_Aperture_Radar_for_Maritime_Security_and_Safety
-
-PolSAR and ship detection - https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images
-
-
-YOLO, Faster R-CNN, SSD - https://cv-tricks.com/object-detection/faster-r-cnn-yolo-ssd/
 
