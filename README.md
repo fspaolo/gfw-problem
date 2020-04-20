@@ -22,11 +22,11 @@ Although the use of all-day/all-weather SAR amplitude images (by CFAR systems) c
 
 We propose to use additional information such as SAR polarization and co-located detections from optical imagery. Numerous studies have used Polarimetric SAR data for ship-detection problems (see refs below). The idea is that backscattering from a complex structure (a ship) consists of a mixture of single-bounced, double-bounced and depolarized scatterings, and only a strong single-bounce or double-bounce scatterer will produce (certain) ambiguities in azimuth, allowing the separation of the different scatterers (ship and sea). Different combination modes of polarization channels can be used to increase the ship-ocean contrast and train CNN models to better recognize vessel features. Because the same CNN architectures can be trained with optical images, we also plan to incorporate detections from optical sensors. This will allows us to better estimate uncertainties on co-located predictions (SAR + Optical), evaluate and adapt network architecture (why a detection is possible on one image type but not the other), and provide historical context for large vessels (e.g. from the Landsat archive). For ground truth, we will rely on the Automatic Identification System (AIS) carried by most medium-to-large ships.
 
-<br/><br/>
+<br/>
 
 ![Sentinel](images/sentinel-1.png)
 
-<br/><br/>
+<br/>
 
 # How can we improve efficiency?
 
@@ -42,11 +42,11 @@ We propose to move not only the processing-predicting workflow to Google's AI Pl
 
 [COG](https://www.cogeo.org/) - A cloud optimized GeoTIFF file aimed at being hosted on a HTTP file server, with an internal organization that enables more efficient workflows on the cloud. It does this by leveraging the ability of clients issuing HTTP GET range requests to ask for just the parts of a file they need.
 
-<br/><br/>
+<br/>
 
 ![Pipeline](images/pipeline1.png)
 
-<br/><br/>
+<br/>
 
 Some practical considerations to keep in mind. Overall, the vessel detection framework needs to be:
 
@@ -58,7 +58,7 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 - **Documented** - throughout the full dev process to be accessible by any team member
 - **Open** - based on actively maintained open-source code and publicly-available data
 
-<br/><br/>
+<br/>
 
 > **NOTE.** Because we want to minimize the development time, it seems practical not focusing on the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development as the complex data is not easily available and the phase information requires sophisticated pre-processing. We aim at implementing, testing and adapting working methods first, and then investigating further improvements to the vessel-detection problem.
 
@@ -67,7 +67,7 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 ### Architect pipeline
 
 * Identify data sources
-* Identify data formats (original -> system input -> system output)
+* Identify data formats (original -> pipeline input -> pipeline output)
 * Identify ingestion mechanism (cloud-to-cloud, external-to-cloud)
 * Identify task-specific parallelization (CPU vs. GPU)
 * Architect cloud workflow (input -> transform -> develop -> predict -> test -> deploy)
@@ -115,15 +115,11 @@ The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exer
 
 ### References and Credits
 
-Some figures have been adapted from Google and the following references:
+Some figures have been modified from Google and the following references:
 
-PolSAR for small ship detection - https://www.mdpi.com/2072-4292/11/24/2938/htm
-
-PolSAR method for ship detection - https://ieeexplore.ieee.org/document/8900480
-
-PolSAR and ship detection - https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images
-
-SAR dataset for deep learning - https://www.mdpi.com/2072-4292/11/7/765/htm
-
-Status of vessel detection with SAR - https://www.researchgate.net/publication/308917393_Current_Status_on_Vessel_Detection_and_Classification_by_Synthetic_Aperture_Radar_for_Maritime_Security_and_Safety
+PolSAR for small ship detection - https://www.mdpi.com/2072-4292/11/24/2938/htm  
+PolSAR method for ship detection - https://ieeexplore.ieee.org/document/8900480  
+PolSAR and ship detection - https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images  
+SAR dataset for deep learning - https://www.mdpi.com/2072-4292/11/7/765/htm  
+Status of vessel detection with SAR - https://www.researchgate.net/publication/308917393_Current_Status_on_Vessel_Detection_and_Classification_by_Synthetic_Aperture_Radar_for_Maritime_Security_and_Safety  
 
