@@ -31,7 +31,7 @@ We propose to test the use of additional information (as a secondary step), such
 
 significant image pre-processing (filtering, resizing, transforming, augmenting, etc.) and model-parameter tuning/selection (usually DL models have millions-to-billions of parameters) is performed using CPUs.
 
-![Pipeline](images/pipeline.png)
+![Pipeline](images/pipeline1.png)
 
 **NOTE** I will not attempt to use the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development on the data engineering side: (a) data is not easily available and (b) the complex information will need to be pre-processed. I would first implement a DL framework to analyze Amplitude, then think how to incorporate Polarization and Optical information, and then (if we decide it’s worth pursuing based on small-scale tests) investigate incorporating Phase information.
 
