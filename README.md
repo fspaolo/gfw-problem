@@ -2,7 +2,7 @@
 
 > Tracking vessel activity in the global oceans from space with AI and cloud computing
 
-[Eye catching figure here]
+![Logo](images/logo.png)
 
 ## Summary 
 
@@ -143,9 +143,13 @@ YOLOv3 (C implementation) - https://pjreddie.com/darknet/yolo/
 
 Faster R-CNN (Python implementation) - https://github.com/jwyang/faster-rcnn.pytorch
 
+Ship detection based on YOLO - https://www.mdpi.com/2072-4292/11/7/786/htm
+
 Ship-detection Planet data - https://medium.com/intel-software-innovators/ship-detection-in-satellite-images-from-scratch-849ccfcc3072
 
 PolSAR and ship detection - X. Cui, S. Chen and Y. Su, "Ship Detection in Polarimetric Sar Image Based on Similarity Test," IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium, Yokohama, Japan, 2019, pp. 1296-1299.
+
+SAR dataset for deep learning - https://www.mdpi.com/2072-4292/11/7/765/htm
 
 Status of vessel detection with SAR - https://www.researchgate.net/publication/308917393_Current_Status_on_Vessel_Detection_and_Classification_by_Synthetic_Aperture_Radar_for_Maritime_Security_and_Safety
 
