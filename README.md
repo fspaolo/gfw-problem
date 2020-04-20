@@ -1,6 +1,6 @@
 # Global vessel detection system
 
-Tracking vessel activity in the global oceans from space with AI and cloud computing
+> Tracking vessel activity in the global oceans from space with AI and cloud computing
 
 [Eye catching figure here]
 
