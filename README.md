@@ -4,29 +4,29 @@
 
 ![Logo](images/logo.png)
 
-## What is this about?
+# What is this about?
 
 A project to develop a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. The objective is two-fold: improve vessel detection accuracy and workflow efficiency. The approach leverages freely-available satellite radar and optical imagery, and state-of-the-art AI algorithms on cloud infrastructure for global-scale monitoring of ships in the oceans. The development is a two-step process: First, implement an artificial neural network framework for ship detection using freely available SAR amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
 
-## Why should we care? 
+# Why should we care? 
 
 Illegal and unsustainable fishing practices can deplete marine resources and endanger food security. Illegal, unreported and unregulated (IUU) fishing affects legitimate commercial fishers, impacts the accuracy of stock estimates, and induce severe damage to non-target species and vulnerable marine ecosystems. It is estimated that IUU fishing impacts the global economy on the billion-dollar-scale annually. Most developing countries do not have sufficient infrastructure in place to monitor vessel activity at large scale.
 
-## How can we improve detection?
+# How can we improve detection?
 
 In recent years, AI computer vision methods have dominated the analyses of natural, medical and satellite images. AI-driven approaches have been shown to outperform standard statistical methods on complex tasks such as classification, object detection and semantic segmentation of massive data streams from surveillance systems, mobile devices, and commercial satellites. Unlike standard statistical methods that are data-type specific, Convolutional Neural Networks (CNN) have been implemented on a wide range of image types and complex backgrounds. CNNs are a natural way forward to improve upon and extend the capabilities of current ship detection systems (moving beyond CFAR-based methods).
 
-1We propose to implement and test three CNN architectures for object detection: [YOLOv3](https://pjreddie.com/darknet/yolo/), [Faster R-CNN](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a), and [SSD](https://towardsdatascience.com/review-ssd-single-shot-detector-object-detection-851a94607d11), as some studies suggest these are among the best performing CNNs for the task of ship detection on satellite images (see refs below). Python implementations of these CNNs on top of TensorFlow and/or PyTorch are also available. Typical outputs from these analysis are the center coordinates, bounding box, and class probability of the objects, a convenient way to report location, size and uncertainty of detected vessels.
+We propose to implement and test three CNN architectures for object detection: [YOLOv3](https://pjreddie.com/darknet/yolo/), [Faster R-CNN](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a), and [SSD](https://towardsdatascience.com/review-ssd-single-shot-detector-object-detection-851a94607d11), as some studies suggest these are among the best performing CNNs for the task of ship detection on satellite images (see refs below). Python implementations of these CNNs on top of TensorFlow and/or PyTorch are also available. Typical outputs from these analysis are the center coordinates, bounding box, and class probability of the objects, a convenient way to report location, size and uncertainty of detected vessels.
 
-Although the use of all-day/all-weather SAR amplitude images (by CFAR systems) constitutes a significant improvement over traditional optical methods (suffering from cloud coverage and light conditions), single-channel SAR images, however, still suffer from inherent speckle noise, azimuth ambiguities, and low contrast on low backscattering background, characteristic of rough ocean environments. Also, in-shore ships can be confounded with the infrastructure of harbors, with similar brightness and shapes.
+Although the use of all-day/all-weather SAR amplitude images (by CFAR systems) constitutes a significant improvement over traditional optical methods (suffering from cloud coverage and light conditions), single-channel SAR images still suffer from inherent speckle noise, azimuth ambiguities, and low contrast on low backscattering background, characteristic of rough ocean environments. Also, in-shore ships can be confounded with the infrastructure of harbors, with similar brightness and shapes.
 
-We propose to use of additional information such as SAR polarization and co-located detections from optical imagery. Numerous studies have used Polarimetric SAR data for ship-detection problems (see refs below). The idea is that backscattering from a complex structure (a ship) consists of a mixture of single-bounced, double-bounced and depolarized scatterings, and only a strong single-bounce or double-bounce scatterer will produce (certain) ambiguities in azimuth, allowing the separation of the different scatterers (ship and sea). Different combination modes of polarization channels can be used to increase the ship-ocean contrast and train CNN models to better recognize vessel features. Because the same CNN architectures can be trained with optical images, we also plan to incorporate detections from optical sensors. This will allows us to better estimate uncertainties on co-located predictions (SAR + Optical), evaluate and adapt network architecture (why a detection is possible on one image type but not the other), and provide historical context for large vessels (e.g. from the Landsat archive). For ground truth, we will rely on the Automatic Identification System (AIS) carried by most medium-to-large ships.
+We propose to use additional information such as SAR polarization and co-located detections from optical imagery. Numerous studies have used Polarimetric SAR data for ship-detection problems (see refs below). The idea is that backscattering from a complex structure (a ship) consists of a mixture of single-bounced, double-bounced and depolarized scatterings, and only a strong single-bounce or double-bounce scatterer will produce (certain) ambiguities in azimuth, allowing the separation of the different scatterers (ship and sea). Different combination modes of polarization channels can be used to increase the ship-ocean contrast and train CNN models to better recognize vessel features. Because the same CNN architectures can be trained with optical images, we also plan to incorporate detections from optical sensors. This will allows us to better estimate uncertainties on co-located predictions (SAR + Optical), evaluate and adapt network architecture (why a detection is possible on one image type but not the other), and provide historical context for large vessels (e.g. from the Landsat archive). For ground truth, we will rely on the Automatic Identification System (AIS) carried by most medium-to-large ships.
 
 
 ![Sentinel](images/sentinel-1.png)
 
 
-## How can be improve efficiency?
+# How can we improve efficiency?
 
 While [Google Earth Engine](https://earthengine.google.com/) allows geospatial analysis at planetary scale by providing pre-processed satellite imagery and convenient access to analysis tools, it also has significant limitations within the scope of this project. The capability of the analysis tools is limited, with little-to-no support for modern neural-net powered machine learning. Predictions are bottlenecked by exports and intermediate file formats. Scaling is limited, and it is difficult (sometimes impossible) to implement custom image analysis operations such as filtering, transforming, and augmenting.
 
@@ -48,7 +48,7 @@ We propose to move not only the processing-predicting workflow to Google's AI Pl
 
 Make clear this proposal is of practical character. We do not intent to develop new machine learning methods, but instead we aim to implement, test and adapt working methods and investigate optimal practices for the problem in question.
 
-## Roadmap
+# Roadmap
 
 In developing large software projects there are some practical considerations to keep in mind regarding the technologies and strategies adopted. Overall, the vessel detection framework needs to be:
 
