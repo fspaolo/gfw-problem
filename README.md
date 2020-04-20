@@ -4,7 +4,7 @@
 
 ![Logo](images/logo.png)
 
-## What's this about?
+## What is this about?
 
 A project to develop a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. The objective is two-fold: improve vessel detection accuracy and workflow efficiency. The approach leverages freely-available satellite radar and optical imagery, and state-of-the-art AI algorithms on cloud infrastructure for global-scale monitoring of ships in the oceans. The development is a two-step process: First, implement an artificial neural network framework for ship detection using freely available SAR amplitude data that can be scaled globally. Second, with a fully working object-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
 
@@ -28,11 +28,11 @@ We propose to use of additional information such as SAR polarization and co-loca
 
 ## How can be improve efficiency?
 
-While Google Earth Engine allows geospatial analysis at planetary scale by providing pre-processed satellite imagery and convenient access to analysis tools, it has significant limitations within the scope of this project. The capability of the analysis tools is limited, with little-to-no support for modern neural-net powered machine learning. Predictions are bottlenecked by exports and intermediate file formats. Scaling is limited, and it is difficult (sometimes impossible) to implement custom image analysis operations (such as filtering, transforming, augmenting).
+While [Google Earth Engine](https://earthengine.google.com/) allows geospatial analysis at planetary scale by providing pre-processed satellite imagery and convenient access to analysis tools, it also has significant limitations within the scope of this project. The capability of the analysis tools is limited, with little-to-no support for modern neural-net powered machine learning. Predictions are bottlenecked by exports and intermediate file formats. Scaling is limited, and it is difficult (sometimes impossible) to implement custom image analysis operations such as filtering, transforming, and augmenting.
 
-Recently, Google has integrated the Earth Engine with TensorFlow and the AI Platform. The AI Platform integrates other services such as the Cloud Storage, the BigQuery data warehouse, and Google's powerful Cloud Compute Engine. Through the AI Platform, we can also access external databases and, perhaps most importantly, we can implement different deep learning frameworks (such as PyTorch) and CPU/GPU parallel architectures (such as Ray).
+Recently, Google has integrated the Earth Engine with [TensorFlow](https://www.tensorflow.org/) and the [AI Platform](https://cloud.google.com/ai-platform). The AI Platform integrates other services such as the [Cloud Storage](https://cloud.google.com/storage), the [BigQuery](https://cloud.google.com/bigquery) data warehouse, and Google's powerful [Cloud Compute Engine](https://cloud.google.com/compute). Through the AI Platform we can also access external databases and, perhaps most importantly, we can implement different deep learning frameworks (such as [PyTorch](https://pytorch.org/)) and CPU/GPU parallel architectures (such as [Ray](https://towardsdatascience.com/modern-parallel-and-distributed-python-a-quick-tutorial-on-ray-99f8d70369b8)).
 
-We propose to move not only the processing-predicting workflow to Google's AI Platform, but also (given its convenient GUI/SSH interface) move the full development stack from code prototyping and hyperparameter tuning to large-scale data visualization. A further improvement in the efficiency of our system is the adoption of cloud-optimized parallel strategies and data formats, such as 
+We propose to move not only the processing-predicting workflow to Google's AI Platform, but also (given its convenient GUI/SSH interface) move the full development stack from code prototyping and hyperparameter tuning to large-scale data visualization. A further improvement in the efficiency of our system is the adoption of cloud-optimized parallelization and data formats, such as 
 
 [Ray](https://github.com/ray-project/ray) - A fast and simple framework for building and running distributed applications. Ray is packaged with [RLlib](https://docs.ray.io/en/latest/rllib.html), a scalable reinforcement learning library, [Tune](https://docs.ray.io/en/latest/tune.html), a scalable hyperparameter tuning library, and [Modin](https://github.com/modin-project/modin), a scalable high-performance DataFrame.
 
