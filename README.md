@@ -18,9 +18,9 @@ In recent years, computer vision methods have dominated the analyses of (natural
 
 We propose to implement and test three CNN object detection methods: YOLOv3, Faster R-CNN, and SSD, as some studies suggest these are among the best performing CNNs for the task of ship detection on satellite iamges (see refs below). Python implementations of these CNNs on top of TensorFlow and/or PyTorch are also available. Despite the different strategies adopted by these three CNN architectures to locate objects, the output of the analyses consist on the center coordinates, bounding box with and height, and class probability of the objects, which is a convenient way to report location, size and uncertainty of a detected vessel.
 
-Although the use of all-day/all-weather SAR backscatter information (as used by CFAR systems) constitutes a significant improvement over traditional optical methods (suffering from cloud coverage and light conditions), single-channel SAR images still suffer from inherent speckle noise, ambiguities in azimuth and range direction, and low contrast on low backscattering background characteristic of rough ocean environments. Moreover, in-shore ships can be confounded with the infrastructure of harbors, with similar brightness and geometries.
+Although the use of all-day/all-weather SAR amplitude information (as used by CFAR systems) constitutes a significant improvement over traditional optical methods (suffering from cloud coverage and light conditions), single-channel SAR images still suffer from inherent speckle noise, azimuth ambiguities, and low contrast on low backscattering background, characteristic of rough ocean environments. Moreover, in-shore ships can be confounded with the infrastructure of harbors, with similar brightness and shapes.
 
-We propose to test the use of additional information (as a secondary step), such as SAR polarization and co-located detections from optical imagery.  
+We propose to test the use of additional information (as a secondary step), such as SAR polarization and co-located detections from optical imagery. Numerous studies have used Polarimetric SAR data for ship-detection problems (see refs below). The idea is that backscattering from a complex structure (a ship) consists of a mixture of single-bounced, double-bounced and depolarized scatterings, and only a strong single-bounce or double-bounce scatterer will produce (certain) ambiguities in azimuth, allowing the separation of the different scatterers (ships and sea surface). Different combination modes of polarization channels can, therefore, be used to increase the ship-ocean contrast and train CNN models to better recognize vessel features. Because the same CNN architectures can be trained with optical images, and substantially more work has been done in this field than using SAR data, we also plan to incorporate detections from optical images. This will allows us to better estimate uncertainties on co-located predictions (SAR + Optical), evaluate and adapt network architecture (e.g. why a detection is possible on one image type but not the other), and provide historical context for large vessels (e.g. from the Landsat archive). For ground truth, we will rely on the Automatic Identification System (AIS) carried by most medium-to-large ships.
 
 ![PolSAR](images/sentinel-1-vv-vh.png)
 
@@ -29,6 +29,7 @@ We propose to test the use of additional information (as a secondary step), such
 
 [Google compute engine instead of GEE, Parallel proc with Ray, optimized data formats, explore network structure simplifications (cite example), move full development to the cloud]
 
+significant image pre-processing (filtering, resizing, transforming, augmenting, etc.) and model-parameter tuning/selection (usually DL models have millions-to-billions of parameters) is performed using CPUs.
 
 ![Pipeline](images/pipeline.png)
 
@@ -112,7 +113,7 @@ Given the adoption of novel technologies and global scope of the project, signif
 
 - most DL detection methods are for RGB images
 - pre-trained models on RS images
-- limited labeled RS data for training
+- limited labeled RS data for training/labeling training images
 - problems inherent to SAR (e.g. speckle noise, contrast on rough ocean)
 - training DL models is computer intensive
 - sea clutter in low and medium sea conditions (SAR)
@@ -133,6 +134,9 @@ Faster R-CNN (Python implementation) - https://github.com/jwyang/faster-rcnn.pyt
 
 Ship-detection Planet data - https://medium.com/intel-software-innovators/ship-detection-in-satellite-images-from-scratch-849ccfcc3072
 
-PolSAR for ship detection - X. Cui, S. Chen and Y. Su, "Ship Detection in Polarimetric Sar Image Based on Similarity Test," IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium, Yokohama, Japan, 2019, pp. 1296-1299.
+PolSAR and ship detection - X. Cui, S. Chen and Y. Su, "Ship Detection in Polarimetric Sar Image Based on Similarity Test," IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium, Yokohama, Japan, 2019, pp. 1296-1299.
+
+PolSAR and ship detection - https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images
 
 YOLO, Faster R-CNN, SSD - https://cv-tricks.com/object-detection/faster-r-cnn-yolo-ssd/
+
