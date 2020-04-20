@@ -44,38 +44,32 @@ We propose to move not only the processing-predicting workflow to Google's AI Pl
 ![Pipeline](images/pipeline1.png)
 
 
-**NOTE** I will not attempt to use the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development on the data engineering side: (a) data is not easily available and (b) the complex information will need to be pre-processed. I would first implement a DL framework to analyze Amplitude, then think how to incorporate Polarization and Optical information, and then (if we decide it’s worth pursuing based on small-scale tests) investigate incorporating Phase information.
-
-Make clear this proposal is of practical character. We do not intent to develop new machine learning methods, but instead we aim to implement, test and adapt working methods and investigate optimal practices for the problem in question.
-
-# Roadmap
-
-In developing large software projects there are some practical considerations to keep in mind regarding the technologies and strategies adopted. Overall, the vessel detection framework needs to be:
+Some practical considerations to keep in mind. Overall, the vessel detection framework needs to be:
 
 - **Fast** - aiming at near-real time detections in future
 - **Transparent** - to facilitate implementation and modifications
 - **Scalable** - identify and asses scalability bottlenecks early on
 - **Automated** - with as minimal human intervention as possible
 - **Proven** - technologies are mature and/or have been successfully applied
-- **Documented** - throughout the dev process to be accessible by any team member
+- **Documented** - throughout the full dev process to be accessible by any team member
 - **Open** - based on actively maintained open-source code and publicly-available data
 
-Next we provide a sketch of the proposed development steps depicting the structure and rationale of the project. 
+> **NOTE.** Because we want to minimize the development time, it seems practical not focusing on the SAR phase information in the first implementation of the system. This is experimental and will likely require substantial research. This will also require additional development as the complex data is not easily available and the phase information requires sophisticated pre-processing. We aim at implementing, testing and adapting working methods first, and then investigating further improvements to the vessel-detection problem.
 
-**[Be more specific (data sources, PolSAR, technical pre-processing, libraries/tools, NN arch]**
+# Roadmap
 
-**[Also consider figures/visuals to make the points]**
+### Architect pipeline
 
-**Architect pipeline**
 * Identify data sources
-* Identify data formats (original->optimal pipeline input->intermediate pipeline steps->output)
-* Identify ingestion mechanism (cloud1->cloud2, external->cloud2)
-* Identify cloud parallel framework (CPU and GPU)
-* Architect cloud workflow: source1 + sourceN -> transformations -> cloud storage -> cloud development env (with access to storage and compute) -> cloud testing env (benchmarking/visualization) -> cloud deployment space -> cloud output
-* Identify automation of pipeline steps (likely some human intervention will be needed at some points. What are those?)
+* Identify data formats (original -> system input -> system output)
+* Identify ingestion mechanism (cloud-to-cloud, external-to-cloud)
+* Identify task-specific parallelization (CPU vs. GPU)
+* Architect cloud workflow (input -> transform -> develop -> predict -> test -> deploy)
+* Identify task automation (some human intervention will be needed in the pipeline)
 * Make shareable/editable documentation
 
-**Develop proof of concept**
+### Develop proof of concept
+
 * Implement a simplified/reduced version of the above pipeline
 * Parallel framework: example, Ray for data pre-proc and ML preparation
 * Select a couple DL approaches. Likely candidates: YOLOv3, Faster R-CNN (say why?)
