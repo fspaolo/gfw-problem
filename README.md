@@ -111,15 +111,15 @@ Given the adoption of novel technologies and global scope of the project, signif
 
 **A word of caution.** There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal DL model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
 
-The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up a basic CNN on a cloud GPU instance.
+The file [example.ipynb](example.ipynb) is a Jupyter Notebook with a simple exercise to test setting up and compiling (C code) a basic CNN on a cloud GPU instance.
 
 ### References and Credits
 
 Some figures have been modified from Google and the following references:
 
-PolSAR for small ship detection - https://www.mdpi.com/2072-4292/11/24/2938/htm  
-PolSAR method for ship detection - https://ieeexplore.ieee.org/document/8900480  
-PolSAR and ship detection - https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images  
-SAR dataset for deep learning - https://www.mdpi.com/2072-4292/11/7/765/htm  
-Status of vessel detection with SAR - https://www.researchgate.net/publication/308917393_Current_Status_on_Vessel_Detection_and_Classification_by_Synthetic_Aperture_Radar_for_Maritime_Security_and_Safety  
+[PolSAR for small ship detection](https://www.mdpi.com/2072-4292/11/24/2938/htm)  
+[PolSAR method for ship detection](https://ieeexplore.ieee.org/document/8900480)  
+[PolSAR and ship detection](https://www.researchgate.net/publication/224116934_Ship_detection_from_polarimetric_SAR_images)  
+[SAR dataset for deep learning](https://www.mdpi.com/2072-4292/11/7/765/htm)  
+[Status of vessel detection with SAR](https://www.researchgate.net/publication/308917393_Current_Status_on_Vessel_Detection_and_Classification_by_Synthetic_Aperture_Radar_for_Maritime_Security_and_Safety)  
 
