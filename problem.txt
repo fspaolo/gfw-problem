@@ -1,5 +1,3 @@
-Hi Fernando, as promised, here is a problem for you:
-
 Please sketch out, in whatever detail you think is appropriate how you'd go about upgrading our Sentinel 1 vessel detection setup. Here's some background:
 
 Currently we are pulling are using Earth Engine to process our data using a variant of the CFAR algorithm. This has the advantage that it's free and that many processing primitives, particularly geospatial transforms are handled cleanly for you. It has the disadvantage that it's relatively slow and limits the kinds of processing that can be done. The dataset we are pulling from is  https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD. 
@@ -9,7 +7,3 @@ We would like to move to something more effective than CFAR and speed up our pro
 The final product would be an array of (lat, lon) pairs for the detections in a scene, possible augmented by confidence, size, speed, course or whatever other additional data might extractable from the image.
 
 The goal of this problem is to give you an chance to show us how you think about and communicate problems. However, if all goes well, you'll have a chance to implement this, so work with yourself as future audience as well.
-
-Best Regards,
-Tim
-
