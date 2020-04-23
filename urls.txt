@@ -1,0 +1,8 @@
+World's shipping routes: UCL Energy Institute
+
+https://www.shipmap.org/
+
+Ship tracking: MarineTraffic.com
+
+https://www.marinetraffic.com/en/ais/home/centerx:-18.6/centery:50.8/zoom:4
+
