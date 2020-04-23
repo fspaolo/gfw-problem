@@ -54,7 +54,7 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 - **Scalable** - identify and asses scalability bottlenecks early on
 - **Automated** - with as minimal human intervention as possible
 - **Proven** - technologies are mature and/or have been successfully applied
-- **Documented** - throughout the full dev process to be accessible by any team member
+- **Documented** - throughout the full dev stack to be accessible by any team member
 - **Open** - based on actively maintained open-source code and publicly-available data
 
 <br/>
