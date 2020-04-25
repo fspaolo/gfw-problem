@@ -107,7 +107,7 @@ Some practical considerations to keep in mind. Overall, the vessel detection fra
 
 # Final thoughts
 
-Given the adoption of novel technologies and global scope of this project, significant challenges still remain. As the project develops, we will test and update our adopted strategies. A significant effort will be required to train and evaluate the CNN models at global scale, as well as generating *optimal* labeled training SAR data sets.
+Given the adoption of novel technologies and global scope of this project, significant challenges still remain. As the project develops, we will test and update our adopted strategies. Significant effort will be required to train and evaluate the CNN models at global scale, as well as generating *optimal* labeled training SAR data sets.
 
 > **A word of caution.**  
 > There is no guarantee that a deep learning approach will outperform a (standard) working method. An optimal deep learning model for a specific problem relies on numerous trial-and-error tests (i.e. brute force), where the model is tuned for the specific data in question. Success heavily relies on a combination of creativity and domain expertise.
