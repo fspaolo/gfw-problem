@@ -6,7 +6,7 @@
 
 # What is this about?
 
-A project to develop a state-of-the-art automated system for tracking, classifying and reporting vessel activities worldwide. The objective is two-fold: improve vessel detection accuracy and workflow efficiency. The approach leverages freely-available satellite radar and optical imagery, and state-of-the-art AI algorithms on cloud infrastructure for global-scale monitoring of ships on the oceans. The development consists of a two-step process: First, implement an artificial neural network framework for ship detection using freely available SAR amplitude data that can be scaled globally. Second, with a fully working vessel-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
+A project to develop the next-generation automated system for tracking, classifying and reporting vessel activities worldwide. The objective is two-fold: improve vessel detection accuracy and workflow efficiency. The approach leverages freely-available satellite radar and optical imagery, and state-of-the-art AI algorithms on cloud infrastructure for global-scale monitoring of ships on the oceans. The development consists of a two-step process: First, implement an artificial neural network framework for ship detection using freely available SAR amplitude data that can be scaled globally. Second, with a fully working vessel-detection system in place, extend the data capability and model sophistication to improve detection accuracy, assimilating SAR polarization data and optical imagery.
 
 # Why should you care? 
 
